@@ -38,6 +38,19 @@ android {
     }
 }
 
+configurations.all {
+    //强制使用某个版本的依赖，若需强制多个依赖，可以逗号分割，
+    resolutionStrategy.force 'com.android.support:support-fragment:26.1.0',
+            'com.android.support:recyclerview-v7:26.1.0',
+            'com.android.support:appcompat-v7:26.1.0',
+            'com.android.support:support-core-ui:26.1.0',
+            'com.android.support:support-core-utils:26.1.0',
+            'com.android.support:support-compat:26.1.0',
+            'com.android.support:support-annotations:26.1.0',
+            'com.android.support:support-vector-drawable:26.1.0',
+            'com.android.support:collections:26.1.0'
+}
+
 dependencies {
     implementation 'com.android.support:support-annotations:26.0.0'
     implementation 'com.android.support:support-compat:26.0.0'
