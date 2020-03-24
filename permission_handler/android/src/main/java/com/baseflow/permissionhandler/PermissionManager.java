@@ -8,12 +8,13 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.PowerManager;
 import android.provider.Settings;
+import android.support.annotation.VisibleForTesting;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.NotificationManagerCompat;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 
-import androidx.annotation.VisibleForTesting;
-import androidx.core.app.ActivityCompat;
-import androidx.core.app.NotificationManagerCompat;
-import androidx.core.content.ContextCompat;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -312,7 +313,7 @@ final class PermissionManager {
                     @PermissionConstants.PermissionStatus int permissionStatus =
                             PermissionUtils.toPermissionStatus(this.activity, permission, result);
 
-                    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q) {
+                    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
                         if (!requestResults.containsKey(PermissionConstants.PERMISSION_GROUP_LOCATION_ALWAYS)) {
                             requestResults.put(
                                     PermissionConstants.PERMISSION_GROUP_LOCATION_ALWAYS,

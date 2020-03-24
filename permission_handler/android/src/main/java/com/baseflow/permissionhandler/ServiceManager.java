@@ -72,15 +72,20 @@ final class ServiceManager {
     }
 
     private boolean isLocationServiceEnabled(Context context) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-            final LocationManager locationManager = context.getSystemService(LocationManager.class);
-            if (locationManager == null) {
-                return false;
-            }
-
-            return locationManager.isLocationEnabled();
-        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            return isLocationServiceEnabledKitKat(context);
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+//            final LocationManager locationManager = context.getSystemService(LocationManager.class);
+//            if (locationManager == null) {
+//                return false;
+//            }
+//
+//            return locationManager.isLocationEnabled();
+//        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+//            return isLocationServiceEnabledKitKat(context);
+//        } else {
+//            return isLocationServiceEnablePreKitKat(context);
+//        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+           return isLocationServiceEnabledKitKat(context);
         } else {
             return isLocationServiceEnablePreKitKat(context);
         }

@@ -7,11 +7,10 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Build;
+import android.support.annotation.RequiresApi;
+import android.support.v4.app.ActivityCompat;
 import android.util.Log;
 
-import androidx.annotation.RequiresApi;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -31,8 +30,8 @@ public class PermissionUtils {
             case Manifest.permission.WRITE_CONTACTS:
             case Manifest.permission.GET_ACCOUNTS:
                 return PermissionConstants.PERMISSION_GROUP_CONTACTS;
-            case Manifest.permission.ACCESS_BACKGROUND_LOCATION:
-                return PermissionConstants.PERMISSION_GROUP_LOCATION_ALWAYS;
+//            case Manifest.permission.ACCESS_BACKGROUND_LOCATION:
+//                return PermissionConstants.PERMISSION_GROUP_LOCATION_ALWAYS;
             case Manifest.permission.ACCESS_COARSE_LOCATION:
             case Manifest.permission.ACCESS_FINE_LOCATION:
                 return PermissionConstants.PERMISSION_GROUP_LOCATION;
@@ -44,8 +43,8 @@ public class PermissionUtils {
             case Manifest.permission.WRITE_CALL_LOG:
             case Manifest.permission.ADD_VOICEMAIL:
             case Manifest.permission.USE_SIP:
-            case Manifest.permission.BIND_CALL_REDIRECTION_SERVICE:
-                return PermissionConstants.PERMISSION_GROUP_PHONE;
+//            case Manifest.permission.BIND_CALL_REDIRECTION_SERVICE:
+//                return PermissionConstants.PERMISSION_GROUP_PHONE;
             case Manifest.permission.BODY_SENSORS:
                 return PermissionConstants.PERMISSION_GROUP_SENSORS;
             case Manifest.permission.SEND_SMS:
@@ -57,10 +56,10 @@ public class PermissionUtils {
             case Manifest.permission.READ_EXTERNAL_STORAGE:
             case Manifest.permission.WRITE_EXTERNAL_STORAGE:
                 return PermissionConstants.PERMISSION_GROUP_STORAGE;
-            case Manifest.permission.ACCESS_MEDIA_LOCATION:
-                return PermissionConstants.PERMISSION_GROUP_ACCESS_MEDIA_LOCATION;
-            case Manifest.permission.ACTIVITY_RECOGNITION:
-                return PermissionConstants.PERMISSION_GROUP_ACTIVITY_RECOGNITION;
+//            case Manifest.permission.ACCESS_MEDIA_LOCATION:
+//                return PermissionConstants.PERMISSION_GROUP_ACCESS_MEDIA_LOCATION;
+//            case Manifest.permission.ACTIVITY_RECOGNITION:
+//                return PermissionConstants.PERMISSION_GROUP_ACTIVITY_RECOGNITION;
             default:
                 return PermissionConstants.PERMISSION_GROUP_UNKNOWN;
         }
@@ -94,10 +93,10 @@ public class PermissionUtils {
                 break;
 
             case PermissionConstants.PERMISSION_GROUP_LOCATION_ALWAYS:
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-                    if (hasPermissionInManifest(context, permissionNames, Manifest.permission.ACCESS_BACKGROUND_LOCATION))
-                        permissionNames.add(Manifest.permission.ACCESS_BACKGROUND_LOCATION);
-                }
+//                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+//                    if (hasPermissionInManifest(context, permissionNames, Manifest.permission.ACCESS_BACKGROUND_LOCATION))
+//                        permissionNames.add(Manifest.permission.ACCESS_BACKGROUND_LOCATION);
+//                }
 
             case PermissionConstants.PERMISSION_GROUP_LOCATION_WHEN_IN_USE:
             case PermissionConstants.PERMISSION_GROUP_LOCATION:
@@ -134,8 +133,8 @@ public class PermissionUtils {
                 if (hasPermissionInManifest(context, permissionNames, Manifest.permission.USE_SIP))
                     permissionNames.add(Manifest.permission.USE_SIP);
 
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q && hasPermissionInManifest(context, permissionNames, Manifest.permission.BIND_CALL_REDIRECTION_SERVICE))
-                    permissionNames.add(Manifest.permission.BIND_CALL_REDIRECTION_SERVICE);
+//                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q && hasPermissionInManifest(context, permissionNames, Manifest.permission.BIND_CALL_REDIRECTION_SERVICE))
+//                    permissionNames.add(Manifest.permission.BIND_CALL_REDIRECTION_SERVICE);
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && hasPermissionInManifest(context, permissionNames, Manifest.permission.ANSWER_PHONE_CALLS))
                     permissionNames.add(Manifest.permission.ANSWER_PHONE_CALLS);
@@ -181,13 +180,13 @@ public class PermissionUtils {
                 break;
 
             case PermissionConstants.PERMISSION_GROUP_ACCESS_MEDIA_LOCATION:
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q && hasPermissionInManifest(context, permissionNames, Manifest.permission.ACCESS_MEDIA_LOCATION))
-                    permissionNames.add(Manifest.permission.ACCESS_MEDIA_LOCATION);
+//                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q && hasPermissionInManifest(context, permissionNames, Manifest.permission.ACCESS_MEDIA_LOCATION))
+//                    permissionNames.add(Manifest.permission.ACCESS_MEDIA_LOCATION);
                 break;
 
             case PermissionConstants.PERMISSION_GROUP_ACTIVITY_RECOGNITION:
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q && hasPermissionInManifest(context, permissionNames, Manifest.permission.ACTIVITY_RECOGNITION))
-                    permissionNames.add(Manifest.permission.ACTIVITY_RECOGNITION);
+//                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q && hasPermissionInManifest(context, permissionNames, Manifest.permission.ACTIVITY_RECOGNITION))
+//                    permissionNames.add(Manifest.permission.ACTIVITY_RECOGNITION);
                 break;
 
             case PermissionConstants.PERMISSION_GROUP_NOTIFICATION:

@@ -2,9 +2,10 @@ package com.baseflow.permissionhandler;
 
 import android.app.Activity;
 import android.content.Context;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+
 
 import io.flutter.embedding.engine.plugins.activity.ActivityAware;
 import io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding;
@@ -26,7 +27,8 @@ import com.baseflow.permissionhandler.PermissionManager.PermissionRegistry;
  * stable {@code io.flutter.plugin.common} package.
  */
 public final class PermissionHandlerPlugin implements FlutterPlugin, ActivityAware {
-    private @Nullable FlutterPluginBinding flutterPluginBinding;
+    private @Nullable
+    FlutterPluginBinding flutterPluginBinding;
     private @Nullable MethodCallHandlerImpl methodCallHandler;
 
     /**
